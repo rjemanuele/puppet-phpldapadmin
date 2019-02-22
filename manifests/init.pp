@@ -52,6 +52,7 @@ class phpldapadmin (
   $base_dn     = hiera(phpldapadmin::base_dn, ''),
   $bind_id     = hiera(phpldapadmin::bind_id, ''),
   $git_source  = hiera(phpldapadmin::git_source, ''),
+  $tls         = hiera(phpldapadmin::tls, false),
 ){
 
   contain phpldapadmin::repo
