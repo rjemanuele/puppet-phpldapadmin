@@ -65,6 +65,10 @@ phpldapadmin::base_dn: "dc=example,dc=com"
 phpldapadmin::bind_id: "cn=admin,dc=example,dc=com" 
 ```
 
+If `/etc/ldap.conf` is configured to use STARTTLS (or the depricated LDAPS)
+```phpldapadmin::tls``` can be set to ````true````.
+
+
 ## Limitations
 
 Currently the following limitations exist with this module:
