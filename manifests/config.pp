@@ -1,6 +1,5 @@
 # PRIVATE CLASS: not to be invoked directly
 class phpldapadmin::config inherits ::phpldapadmin{
-  
   class { 'apache':
     default_vhost => true,
     mpm_module    => 'prefork',
