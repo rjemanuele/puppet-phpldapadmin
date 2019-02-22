@@ -47,18 +47,18 @@
 #
 class phpldapadmin (
   $vhosts      = hiera(phpldapadmin::vhost, {}),
-  $server_name = hiera(phpldapadmin::server_name, ""),
-  $server_ip   = hiera(phpldapadmin::server_ip, ""),
-  $base_dn     = hiera(phpldapadmin::base_dn, ""),
-  $bind_id     = hiera(phpldapadmin::bind_id, ""),
-  $git_source  = hiera(phpldapadmin::git_source, ""),
+  $server_name = hiera(phpldapadmin::server_name, ''),
+  $server_ip   = hiera(phpldapadmin::server_ip, ''),
+  $base_dn     = hiera(phpldapadmin::base_dn, ''),
+  $bind_id     = hiera(phpldapadmin::bind_id, ''),
+  $git_source  = hiera(phpldapadmin::git_source, ''),
 ){
 
   contain phpldapadmin::repo
   contain ::phpldapadmin::install
   contain ::phpldapadmin::config
 
-  Class["phpldapadmin::repo"]
-  -> Class["phpldapadmin::install"]
-  -> Class["phpldapadmin::config"]
+  Class['phpldapadmin::repo']
+  -> Class['phpldapadmin::install']
+  -> Class['phpldapadmin::config']
 }
