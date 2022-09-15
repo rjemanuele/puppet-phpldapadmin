@@ -18,6 +18,7 @@ class phpldapadmin::config inherits ::phpldapadmin{
     ensure   => 'present',
     provider => 'git',
     source   => $phpldapadmin::git_source,
+    branch   => $phpldapadmin::git_rev,
   }
 
   create_resources('apache::vhost', $phpldapadmin::vhosts)

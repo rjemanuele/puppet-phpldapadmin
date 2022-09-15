@@ -52,14 +52,14 @@ class phpldapadmin (
   $base_dn     = hiera(phpldapadmin::base_dn, ''),
   $bind_id     = hiera(phpldapadmin::bind_id, ''),
   $git_source  = hiera(phpldapadmin::git_source, ''),
+  $git_rev     = hiera(phpldapadmin::git_rev, 'master'),
   $tls         = hiera(phpldapadmin::tls, false),
+  $uid_number_min = hiera(phpldapadmin::uid_number_min, 1000),
+  $gid_number_min = hiera(phpldapadmin::uid_number_min, 500),
 ){
-
-  contain phpldapadmin::repo
   contain ::phpldapadmin::install
   contain ::phpldapadmin::config
 
-  Class['phpldapadmin::repo']
-  -> Class['phpldapadmin::install']
+  Class['phpldapadmin::install']
   -> Class['phpldapadmin::config']
 }
