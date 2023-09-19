@@ -56,6 +56,7 @@ class phpldapadmin (
   $tls         = hiera(phpldapadmin::tls, false),
   $uid_number_min = hiera(phpldapadmin::uid_number_min, 1000),
   $gid_number_min = hiera(phpldapadmin::uid_number_min, 500),
+  $password_hash = hiera(phpldapadmin::password_hash, ''),
 ){
   contain ::phpldapadmin::install
   contain ::phpldapadmin::config
